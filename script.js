@@ -14,8 +14,6 @@ function divide(firstNumber, secoundNumber) {
     return firstNumber / secoundNumber;
 }
 
-
-
 function calculate(firstNumber, operator, secoundNumber) {
     switch(operator) {
         case '+':
@@ -52,7 +50,6 @@ function removeHighlight() {
 }
 
 let output = document.querySelector("#output");
-
 let buttons = document.querySelector("#buttons");
 
 buttons.addEventListener("click", (event) => {
@@ -93,7 +90,6 @@ buttons.addEventListener("click", (event) => {
 
         removeHighlight();
         target.classList.add("highlightOperator");
-        /* Lägg in att operator ska highlightas*/
     }
 
     if(target.id == "clear") {
@@ -112,11 +108,5 @@ buttons.addEventListener("click", (event) => {
             outPutText = "0";
         }
     }
-
-
     output.textContent = outPutText;
-
-    /* console.log("firstNumber: " + firstNumber);
-    console.log("operator: " + operator);
-    console.log("secoundNumber: " + secoundNumber); */
 })
