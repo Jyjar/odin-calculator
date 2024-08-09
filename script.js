@@ -41,6 +41,14 @@ function reset() {
     secoundNumber = false;
     operator = false;
     outPutText = "0";
+    removeHighlight();
+}
+
+function removeHighlight() {
+    const highlighted = document.querySelector(".highlightOperator");
+    if (highlighted) {
+        highlighted.classList.remove("highlightOperator");
+    }
 }
 
 let output = document.querySelector("#output");
@@ -62,25 +70,29 @@ buttons.addEventListener("click", (event) => {
             } else {
                 secoundNumber += target.id
             }
+            outPutText = secoundNumber;
         } else {
             if(firstNumber == false) {
                 firstNumber = target.id;
             } else {
                 firstNumber += target.id;
             }
+            outPutText = firstNumber;
         }
-        outPutText += target.id;
+        removeHighlight();
     }
 
     if(target.className == "operator") {
         if(secoundNumber != false) {
-            console.log("ok");
             calculatedValue = calculate(Number(firstNumber), operator, Number(secoundNumber))
             reset()
             outPutText = calculatedValue;
             firstNumber = calculatedValue;
         } 
         operator = target.id;
+
+        removeHighlight();
+        target.classList.add("highlightOperator");
         /* Lägg in att operator ska highlightas*/
     }
 
@@ -101,5 +113,10 @@ buttons.addEventListener("click", (event) => {
         }
     }
 
+
     output.textContent = outPutText;
+
+    /* console.log("firstNumber: " + firstNumber);
+    console.log("operator: " + operator);
+    console.log("secoundNumber: " + secoundNumber); */
 })

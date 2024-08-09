@@ -1,17 +1,77 @@
-html, body {
-    height: 100%;
-}
-
-html {
-    display: table;
-    margin: auto;
+* {
+    box-sizing: border-box;
 }
 
 body {
-    display: table-cell;
-    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: black;
 }
 
 #calculator {
     display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    height: 500px;
+}
+
+#output {
+    width: 400px;
+    height: 100px;
+    background-color: grey;
+    color: white;
+    font-size: 50px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 10px;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: column; /* Arrange rows vertically */
+    width: 400px;
+    flex-grow: 1;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between; /* Distribute buttons evenly */
+}
+
+.number,
+.operator,
+.equal,
+#clear {
+    width: 100px;
+    height: 100px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.number {
+    background-color: lightgrey;
+}
+
+.operator {
+    background-color: orange;
+}
+
+.equal {
+    background-color: darkgrey;
+}
+
+#clear {
+    background-color: darkgrey;
+}
+
+.highlightOperator {
+    background-color: whitesmoke;
+    color: orange;
 }
